@@ -55,7 +55,15 @@ if (bookingForm) {
   });
 }
 
-
+// Fechar o menu mobile ao clicar em um link
+var navLinks = document.querySelectorAll('.nav-link');
+navLinks.forEach(function (link) {
+  link.addEventListener('click', function () {
+    if (navMenu && navMenu.classList.contains('active')) {
+      navMenu.classList.remove('active');
+    }
+  });
+});
 
 
 // Menu Mobile Toggle
