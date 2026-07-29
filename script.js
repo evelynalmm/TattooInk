@@ -10,11 +10,11 @@ loginBtn.addEventListener('click', () => {
   container.classList.remove('active');
 });
 
-// Redirecionamento ao Enviar formulário para a Home
-const forms = document.querySelectorAll('form');
-forms.forEach(form => {
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    window.location.href = 'home.html';
-  });
+// Exemplo de redirecionamento no script do login:
+const loginForm = document.querySelector('.sign-in form');
+
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  // Redireciona para a home após efetuar o "login"
+  window.location.href = 'home.html';
 });

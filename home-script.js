@@ -55,6 +55,7 @@ if (bookingForm) {
   });
 }
 
+
 // Fechar o menu mobile ao clicar em um link
 var navLinks = document.querySelectorAll('.nav-link');
 navLinks.forEach(function (link) {
