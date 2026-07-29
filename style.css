@@ -12,11 +12,11 @@ body {
   justify-content: center;
   flex-direction: column;
   min-height: 100vh;
-  padding: 20px 0;
+  padding: 20px;
   color: #e0e0e0;
 }
 
-/* --- ESTILO DO TÍTULO PRINCIPAL (MARCA) --- */
+/* MARCA NO TOPO */
 .header-brand {
   text-align: center;
   margin-bottom: 25px;
@@ -24,9 +24,9 @@ body {
 
 .main-logo {
   font-family: 'Cinzel', serif;
-  font-size: 52px;
+  font-size: 48px;
   font-weight: 900;
-  letter-spacing: 8px;
+  letter-spacing: 6px;
   text-transform: uppercase;
   color: #ffffff;
   text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
@@ -34,18 +34,18 @@ body {
 }
 
 .main-logo span {
-  color: #d4af37; /* Dourado */
+  color: #d4af37;
 }
 
 .tagline {
-  font-size: 13px;
-  letter-spacing: 4px;
+  font-size: 12px;
+  letter-spacing: 3px;
   text-transform: uppercase;
   color: #888888;
   font-weight: 600;
 }
 
-/* --- CONTAINER DO FORMULÁRIO --- */
+/* CONTAINER PRINCIPAL */
 .container {
   background-color: #121212;
   border-radius: 16px;
@@ -54,8 +54,8 @@ body {
   position: relative;
   overflow: hidden;
   width: 768px;
-  max-width: 95%;
-  min-height: 460px;
+  max-width: 100%;
+  min-height: 480px;
 }
 
 .container h2 {
@@ -129,7 +129,6 @@ body {
   height: 100%;
 }
 
-/* INPUTS */
 .container input {
   background-color: #1a1a1a;
   border: 1px solid #2e2e2e;
@@ -151,7 +150,7 @@ body {
   border-color: #d4af37;
 }
 
-/* TRANSIÇÕES E ANIMAÇÃO */
+/* TRANSIÇÕES SLIDE DESKTOP */
 .form-container {
   position: absolute;
   top: 0;
@@ -265,4 +264,98 @@ body {
 
 .container.active .toggle-right {
   transform: translateX(200%);
+}
+
+/* RESPONSIVIDADE PARA CELULARES (LOGIN) */
+@media (max-width: 768px) {
+  .main-logo {
+    font-size: 36px;
+    letter-spacing: 4px;
+  }
+
+  .container {
+    min-height: 520px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-container {
+    position: relative;
+    width: 100% !important;
+    height: 380px;
+    top: 0;
+    left: 0 !important;
+    transform: none !important;
+  }
+
+  .sign-in {
+    display: flex;
+  }
+
+  .container.active .sign-in {
+    display: none;
+  }
+
+  .sign-up {
+    display: none;
+    opacity: 1;
+  }
+
+  .container.active .sign-up {
+    display: flex;
+    animation: none;
+  }
+
+  .toggle-container {
+    position: relative;
+    width: 100% !important;
+    height: 140px;
+    left: 0 !important;
+    top: 0;
+    border-radius: 0 !important;
+    transform: none !important;
+  }
+
+  .container.active .toggle-container {
+    transform: none !important;
+    border-radius: 0 !important;
+  }
+
+  .toggle {
+    left: 0;
+    width: 100%;
+    transform: none !important;
+  }
+
+  .container.active .toggle {
+    transform: none !important;
+  }
+
+  .toggle-panel {
+    width: 100%;
+    padding: 15px;
+    transform: none !important;
+  }
+
+  .toggle-panel p {
+    display: none; /* Esconde parágrafos longos no mobile para economizar tela */
+  }
+
+  .toggle-left {
+    display: none;
+  }
+
+  .container.active .toggle-left {
+    display: flex;
+    transform: none !important;
+  }
+
+  .toggle-right {
+    display: flex;
+    transform: none !important;
+  }
+
+  .container.active .toggle-right {
+    display: none;
+  }
 }
