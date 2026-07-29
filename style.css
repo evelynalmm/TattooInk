@@ -12,14 +12,14 @@ body {
   justify-content: center;
   flex-direction: column;
   min-height: 100vh;
-  padding: 20px 15px;
+  padding: 20px;
   color: #e0e0e0;
 }
 
-/* MARCA DO TOPO */
+/* MARCA NO TOPO */
 .header-brand {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .main-logo {
@@ -45,37 +45,6 @@ body {
   font-weight: 600;
 }
 
-/* ABAS MOBILE (ESCONDIDAS NO DESKTOP) */
-.mobile-tabs {
-  display: none;
-  width: 100%;
-  max-width: 400px;
-  margin-bottom: 15px;
-  background-color: #121212;
-  border-radius: 8px;
-  padding: 5px;
-  border: 1px solid #2a2a2a;
-}
-
-.tab-btn {
-  flex: 1;
-  padding: 10px;
-  background: transparent;
-  border: none;
-  color: #888;
-  font-weight: 700;
-  cursor: pointer;
-  border-radius: 6px;
-  text-transform: uppercase;
-  font-size: 12px;
-  transition: all 0.3s;
-}
-
-.tab-btn.active {
-  background-color: #d4af37;
-  color: #000;
-}
-
 /* CONTAINER PRINCIPAL */
 .container {
   background-color: #121212;
@@ -86,7 +55,7 @@ body {
   overflow: hidden;
   width: 768px;
   max-width: 100%;
-  min-height: 460px;
+  min-height: 480px;
 }
 
 .container h2 {
@@ -109,9 +78,14 @@ body {
   font-size: 13px;
   text-decoration: none;
   margin: 15px 0 10px;
+  transition: color 0.3s ease;
 }
 
-/* BOTÕES */
+.container a:hover {
+  color: #f3e5ab;
+}
+
+/* BOTÕES ESTILIZADOS */
 .container button {
   background-color: #d4af37;
   color: #0d0d0d;
@@ -127,10 +101,21 @@ body {
   transition: all 0.3s ease;
 }
 
+.container button:hover {
+  background-color: #b38f28;
+  border-color: #b38f28;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+}
+
 .container button.hidden {
   background-color: transparent;
   border-color: #d4af37;
   color: #d4af37;
+}
+
+.container button.hidden:hover {
+  background-color: #d4af37;
+  color: #0d0d0d;
 }
 
 .container form {
@@ -141,7 +126,6 @@ body {
   flex-direction: column;
   padding: 0 40px;
   height: 100%;
-  width: 100%;
 }
 
 .container input {
@@ -154,131 +138,141 @@ body {
   border-radius: 6px;
   width: 100%;
   outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.container input::placeholder {
+  color: #666;
 }
 
 .container input:focus {
   border-color: #d4af37;
 }
 
-/* SLIDE SLIDER PARA DESKTOP */
-.form-container {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  transition: all 0.6s ease-in-out;
-}
+/* --- ESTRUTURA SLIDE (DESKTOP) --- */
+@media (min-width: 769px) {
+  .form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+  }
 
-.sign-in {
-  left: 0;
-  width: 50%;
-  z-index: 2;
-}
+  .sign-in {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+  }
 
-.container.active .sign-in {
-  transform: translateX(100%);
-}
+  .container.active .sign-in {
+    transform: translateX(100%);
+  }
 
-.sign-up {
-  left: 0;
-  width: 50%;
-  opacity: 0;
-  z-index: 1;
-}
+  .sign-up {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+  }
 
-.container.active .sign-up {
-  transform: translateX(100%);
-  opacity: 1;
-  z-index: 5;
-  animation: move 0.6s;
-}
+  .container.active .sign-up {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.6s;
+  }
 
-@keyframes move {
-  0%, 49.99% { opacity: 0; z-index: 1; }
-  50%, 100% { opacity: 1; z-index: 5; }
-}
-
-.toggle-container {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 50%;
-  height: 100%;
-  overflow: hidden;
-  transition: all 0.6s ease-in-out;
-  border-radius: 150px 0 0 100px;
-  z-index: 1000;
-}
-
-.container.active .toggle-container {
-  transform: translateX(-100%);
-  border-radius: 0 150px 100px 0;
-}
-
-.toggle {
-  background: linear-gradient(135deg, #1f1f1f, #0a0a0a);
-  border-left: 1px solid rgba(212, 175, 55, 0.2);
-  height: 100%;
-  color: #fff;
-  position: relative;
-  left: -100%;
-  width: 200%;
-  transform: translateX(0);
-  transition: all 0.6s ease-in-out;
-}
-
-.container.active .toggle {
-  transform: translateX(50%);
-}
-
-.toggle-panel {
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 0 30px;
-  text-align: center;
-  top: 0;
-}
-
-.toggle-left { transform: translateX(-200%); }
-.container.active .toggle-left { transform: translateX(0); }
-.toggle-right { right: 0; transform: translateX(0); }
-.container.active .toggle-right { transform: translateX(200%); }
-
-/* CORREÇÃO PARA SMARTPHONES (MOBILE) */
-@media (max-width: 768px) {
-  .mobile-tabs {
-    display: flex; /* Exibe os botões de abas no celular */
+  @keyframes move {
+    0%, 49.99% { opacity: 0; z-index: 1; }
+    50%, 100% { opacity: 1; z-index: 5; }
   }
 
   .toggle-container {
-    display: none; /* Esconde o painel lateral no celular */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 150px 0 0 100px;
+    z-index: 1000;
+  }
+
+  .container.active .toggle-container {
+    transform: translateX(-100%);
+    border-radius: 0 150px 100px 0;
+  }
+
+  .toggle {
+    background: linear-gradient(135deg, #1f1f1f, #0a0a0a);
+    border-left: 1px solid rgba(212, 175, 55, 0.2);
+    height: 100%;
+    color: #fff;
+    position: relative;
+    left: -100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+  }
+
+  .container.active .toggle {
+    transform: translateX(50%);
+  }
+
+  .toggle-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+  }
+
+  .toggle-left { transform: translateX(-200%); }
+  .container.active .toggle-left { transform: translateX(0); }
+  .toggle-right { right: 0; transform: translateX(0); }
+  .container.active .toggle-right { transform: translateX(200%); }
+}
+
+/* --- CORREÇÃO COMPLETA PARA SMARTPHONES (MOBILE) --- */
+@media (max-width: 768px) {
+  body {
+    padding: 15px 10px;
+  }
+
+  .main-logo {
+    font-size: 34px;
+    letter-spacing: 4px;
   }
 
   .container {
     width: 100%;
     max-width: 400px;
     min-height: auto;
-    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
   }
 
   .form-container {
     position: relative;
-    width: 100% !important;
+    width: 100%;
     height: auto;
-    top: 0;
-    left: 0 !important;
-    transform: none !important;
+    padding: 20px 0;
   }
 
   .container form {
     padding: 10px 20px;
   }
 
-  /* Controla qual formulário aparece no celular */
+  /* Oculta um dos formulários de forma limpa */
   .sign-in {
     display: flex;
   }
@@ -295,5 +289,65 @@ body {
   .container.active .sign-up {
     display: flex;
     animation: none;
+  }
+
+  /* Painel inferior de troca em mobile */
+  .toggle-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    left: 0;
+    top: 0;
+    border-radius: 0;
+    border-top: 1px solid #2a2a2a;
+    transform: none !important;
+  }
+
+  .toggle {
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: auto;
+    transform: none !important;
+    background: #0d0d0d;
+    padding: 20px 15px;
+  }
+
+  .toggle-panel {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    transform: none !important;
+  }
+
+  .toggle-panel p {
+    margin: 8px 0 12px;
+    font-size: 13px;
+  }
+
+  .toggle-panel h2 {
+    font-size: 18px;
+  }
+
+  .toggle-left {
+    display: none;
+  }
+
+  .container.active .toggle-left {
+    display: flex;
+  }
+
+  .toggle-right {
+    display: flex;
+  }
+
+  .container.active .toggle-right {
+    display: none;
+  }
+
+  .container button {
+    width: 100%;
+    padding: 12px;
   }
 }
