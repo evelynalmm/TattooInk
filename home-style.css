@@ -12,7 +12,6 @@ body {
   overflow-x: hidden;
 }
 
-/* CORES E BOTÕES */
 :root {
   --gold: #d4af37;
   --gold-hover: #b38f28;
@@ -135,19 +134,18 @@ body {
 
 /* HERO SECTION */
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(rgba(0,0,0,0.75), rgba(11,11,11,1)), 
               url('https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?q=80&w=1600&auto=format&fit=crop') center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 20px;
+  padding: 100px 20px 40px;
 }
 
 .hero-content {
   max-width: 800px;
-  margin-top: 60px;
 }
 
 .hero .tagline {
@@ -181,7 +179,7 @@ body {
   justify-content: center;
 }
 
-/* SEÇÕES TÍTULO */
+/* SEÇÕES */
 .section-title {
   text-align: center;
   margin-bottom: 40px;
@@ -214,7 +212,7 @@ body {
 .portfolio-filters {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 12px;
   margin-bottom: 40px;
   flex-wrap: wrap;
 }
@@ -223,10 +221,11 @@ body {
   background: transparent;
   border: 1px solid var(--border-color);
   color: #aaa;
-  padding: 8px 20px;
+  padding: 8px 18px;
   border-radius: 20px;
   cursor: pointer;
   transition: all 0.3s;
+  font-size: 13px;
 }
 
 .filter-btn.active, .filter-btn:hover {
@@ -287,7 +286,7 @@ body {
   font-size: 12px;
 }
 
-/* FORMULÁRIO DE AGENDAMENTO */
+/* AGENDAMENTO */
 .booking {
   padding: 100px 20px;
   background-color: #101010;
@@ -328,6 +327,7 @@ body {
   border-radius: 6px;
   color: #fff;
   outline: none;
+  font-size: 14px;
 }
 
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
@@ -350,10 +350,14 @@ body {
   background: var(--bg-input);
   border: 1px solid var(--border-color);
   color: #fff;
-  padding: 8px 12px;
+  padding: 10px 14px;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s;
+  font-size: 13px;
+  flex: 1;
+  min-width: 70px;
+  text-align: center;
 }
 
 .slot-btn.selected, .slot-btn:hover {
@@ -491,34 +495,107 @@ body {
   font-size: 12px;
 }
 
-/* RESPONSIVIDADE */
+/* REGRAS DE RESPONSIVIDADE (MOBILE / TABLET) */
+@media (max-width: 992px) {
+  .hero h1 {
+    font-size: 42px;
+  }
+}
+
 @media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
   .nav-menu {
     position: fixed;
-    top: 70px;
+    top: 65px;
     left: -100%;
     width: 100%;
-    height: calc(100vh - 70px);
-    background-color: #0b0b0b;
+    height: calc(100vh - 65px);
+    background-color: rgba(11, 11, 11, 0.98);
+    backdrop-filter: blur(15px);
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: 0.3s;
+    gap: 35px;
+    transition: left 0.4s ease;
   }
 
   .nav-menu.active {
     left: 0;
   }
 
-  .hamburger {
-    display: block;
+  .nav-link {
+    font-size: 18px;
+  }
+
+  .nav-actions .btn-gold {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 120px;
   }
 
   .hero h1 {
-    font-size: 36px;
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-btns .btn-gold,
+  .hero-btns .btn-outline {
+    width: 100%;
+  }
+
+  .section-title h2 {
+    font-size: 28px;
+  }
+
+  .booking-container {
+    padding: 25px 20px;
   }
 
   .form-row {
     grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .time-slots {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .card-overlay {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .portfolio, .booking, .flash {
+    padding: 60px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .portfolio-filters {
+    gap: 8px;
+  }
+
+  .filter-btn {
+    padding: 6px 14px;
+    font-size: 12px;
   }
 }
