@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TattooInk - Studio</title>
+  
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Ícones FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="home-style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">Tattoo<span>Ink</span></a>
+      
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#home" class="nav-link">Início</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+        <li><a href="#agendamento" class="nav-link">Agendamento</a></li>
+        <li><a href="#flash" class="nav-link">Flash Tattoos</a></li>
+        <li><a href="#contato" class="nav-link">Contato</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#agendamento" class="btn-gold">Marcar Sessão</a>
+        <button class="hamburger" id="hamburger">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <span class="tagline">Arte na Pele • Exclusividade • Biossegurança</span>
+      <h1>Sua história gravada com <span>perfeição</span></h1>
+      <p>Especialistas em projetos autorais, realismo, blackwork e fine line. Transformamos suas ideias em arte eterna.</p>
+      <div class="hero-btns">
+        <a href="#agendamento" class="btn-gold">Agendar Horário</a>
+        <a href="#portfolio" class="btn-outline">Ver Trabalhos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO DE PORTFÓLIO / PROJETOS -->
+  <section class="portfolio" id="portfolio">
+    <div class="section-title">
+      <h2>Nosso <span>Portfólio</span></h2>
+      <p>Confira alguns dos trabalhos recentes realizados em nosso studio</p>
+    </div>
+
+    <!-- Filtros por Estilo -->
+    <div class="portfolio-filters">
+      <button class="filter-btn active" data-filter="todos">Todos</button>
+      <button class="filter-btn" data-filter="blackwork">Blackwork</button>
+      <button class="filter-btn" data-filter="realismo">Realismo</button>
+      <button class="filter-btn" data-filter="fineline">Fine Line</button>
+      <button class="filter-btn" data-filter="oriental">Oriental</button>
+    </div>
+
+    <!-- Grid de Fotos/Trabalhos -->
+    <div class="portfolio-grid">
+      <div class="portfolio-card" data-category="blackwork">
+        <img src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?q=80&w=800&auto=format&fit=crop" alt="Tatuagem Blackwork">
+        <div class="card-overlay">
+          <h3>Fechamento de Braço</h3>
+          <span>Blackwork / Neotrad</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card" data-category="realismo">
+        <img src="https://images.unsplash.com/photo-1562962230-16e4623d36e6?q=80&w=800&auto=format&fit=crop" alt="Tatuagem Realismo">
+        <div class="card-overlay">
+          <h3>Retrato Felino</h3>
+          <span>Realismo P&B</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card" data-category="fineline">
+        <img src="https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?q=80&w=800&auto=format&fit=crop" alt="Tatuagem Fine Line">
+        <div class="card-overlay">
+          <h3>Flor de Lótus</h3>
+          <span>Fine Line / Delicada</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card" data-category="oriental">
+        <img src="https://images.unsplash.com/photo-1568515045052-f9a854d7a4c7?q=80&w=800&auto=format&fit=crop" alt="Tatuagem Oriental">
+        <div class="card-overlay">
+          <h3>Carpa e Ondas</h3>
+          <span>Oriental Tradicional</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO DE AGENDAMENTO -->
+  <section class="booking" id="agendamento">
+    <div class="section-title">
+      <h2>Agende sua <span>Sessão</span></h2>
+      <p>Escolha a data, o melhor horário e envie sua ideia</p>
+    </div>
+
+    <div class="booking-container">
+      <form class="booking-form" id="bookingForm">
+        
+        <!-- 1. Dados do Cliente (Nome e Celular) -->
+        <div class="form-row">
+          <div class="form-group">
+            <label><i class="fa-solid fa-user"></i> Nome Completo</label>
+            <input type="text" placeholder="Seu nome" required id="clientName">
+          </div>
+
+          <div class="form-group">
+            <label><i class="fa-solid fa-mobile-screen-button"></i> Celular / WhatsApp</label>
+            <input type="tel" placeholder="(00) 90000-0000" required id="clientPhone" maxlength="15">
+          </div>
+        </div>
+
+        <!-- 2. Data e Horários -->
+        <div class="form-row">
+          <div class="form-group">
+            <label><i class="fa-solid fa-calendar-days"></i> Data Preferida</label>
+            <input type="date" required id="bookingDate">
+          </div>
+
+          <div class="form-group">
+            <label><i class="fa-solid fa-clock"></i> Horários Disponíveis</label>
+            <div class="time-slots" id="timeSlots">
+              <button type="button" class="slot-btn">10:00</button>
+              <button type="button" class="slot-btn">13:30</button>
+              <button type="button" class="slot-btn">16:00</button>
+              <button type="button" class="slot-btn">18:30</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Detalhes da Ideia -->
+        <div class="form-group">
+          <label><i class="fa-solid fa-pen-nib"></i> Descreva sua ideia (Local do corpo, tamanho aproximado em cm)</label>
+          <textarea rows="4" placeholder="Ex: Gostaria de uma flor de lótus no antebraço com cerca de 10cm em estilo Fine Line." required></textarea>
+        </div>
+
+        <!-- 4. Upload de Referência -->
+        <div class="form-group">
+          <label><i class="fa-solid fa-upload"></i> Enviar imagem de referência (opcional)</label>
+          <input type="file" accept="image/*" class="file-input">
+        </div>
+
+        <button type="submit" class="btn-gold full-width">Confirmar Solicitação de Agendamento</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- SEÇÃO FLASH TATTOOS -->
+  <section class="flash" id="flash">
+    <div class="section-title">
+      <h2>Flash <span>Tattoos</span></h2>
+      <p>Desenhos autorais exclusivos prontos para tatuar com valor especial</p>
+    </div>
+
+    <div class="flash-grid">
+      <div class="flash-card">
+        <div class="flash-badge">Exclusivo</div>
+        <img src="https://images.unsplash.com/photo-1542226601-bc82e276ae3a?q=80&w=600&auto=format&fit=crop" alt="Flash Tattoo">
+        <div class="flash-info">
+          <h3>Crânio Neotrad</h3>
+          <p>Tamanho: 12x8 cm</p>
+          <span class="price">R$ 450,00</span>
+          <button class="btn-outline full-width">Reservar Flash</button>
+        </div>
+      </div>
+
+      <div class="flash-card">
+        <div class="flash-badge">Exclusivo</div>
+        <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop" alt="Flash Tattoo">
+        <div class="flash-info">
+          <h3>Adaga Floral</h3>
+          <p>Tamanho: 15x6 cm</p>
+          <span class="price">R$ 520,00</span>
+          <button class="btn-outline full-width">Reservar Flash</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ / CONTATO -->
+  <footer class="footer" id="contato">
+    <div class="footer-container">
+      <div class="footer-col">
+        <a href="#" class="nav-logo">Tattoo<span>Ink</span></a>
+        <p>Studio profissional focado na excelência artística, higiene rigorosa e experiência personalizada para cada cliente.</p>
+        <div class="social-links">
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>Horário de Funcionamento</h3>
+        <ul>
+          <li><span>Terça - Sexta:</span> 10:00 - 20:00</li>
+          <li><span>Sábado:</span> 10:00 - 18:00</li>
+          <li><span>Domingo e Segunda:</span> Fechado</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Onde Estamos</h3>
+        <p><i class="fa-solid fa-location-dot"></i> Av. Central, 1000 - Centro</p>
+        <p><i class="fa-solid fa-phone"></i> (24) 99999-9999</p>
+        <p><i class="fa-solid fa-envelope"></i> contato@tattooink.com.br</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 TattooInk Studio. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+
+  
+ <!-- SDKs do Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+<script src="home-script.js"></script>
+
+
+
+</body>
+</html>

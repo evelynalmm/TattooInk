@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TattooInk - Painel Administrativo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+    body { background-color: #0b0b0b; color: #e0e0e0; padding: 20px; }
+
+    .header-admin { display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: 0 auto 30px; border-bottom: 1px solid #2a2a2a; padding-bottom: 15px; }
+    .header-admin h1 { font-family: 'Cinzel', serif; color: #d4af37; font-size: 24px; }
+    .btn-logout { background: transparent; border: 1px solid #d4af37; color: #d4af37; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+
+    /* Tela de Login Admin */
+    .login-container { max-width: 400px; margin: 100px auto; background-color: #141414; padding: 30px; border-radius: 12px; border: 1px solid #2a2a2a; }
+    .login-container h2 { text-align: center; margin-bottom: 20px; color: #d4af37; font-family: 'Cinzel', serif; }
+    .login-container input { width: 100%; padding: 12px; margin-bottom: 15px; background: #1f1f1f; border: 1px solid #2a2a2a; border-radius: 6px; color: #fff; }
+    .btn-gold { width: 100%; padding: 12px; background: #d4af37; border: none; font-weight: 700; cursor: pointer; border-radius: 6px; text-transform: uppercase; }
+
+    /* Painel de Agendamentos */
+    .cards-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .card-appointment { background-color: #141414; border: 1px solid #2a2a2a; border-radius: 12px; padding: 20px; position: relative; }
+    .card-appointment h3 { color: #fff; margin-bottom: 10px; font-size: 18px; }
+    .card-appointment p { font-size: 14px; color: #aaa; margin-bottom: 8px; }
+    .card-appointment p strong { color: #d4af37; }
+    .btn-wsp { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 10px; background-color: #25d366; color: #000; font-weight: 700; border-radius: 6px; text-decoration: none; margin-top: 15px; }
+    
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+
+  <!-- TELA DE LOGIN DO ADMIN -->
+  <div class="login-container" id="loginBox">
+    <h2>TattooInk Admin</h2>
+    <form id="adminLoginForm">
+      <input type="email" id="adminEmail" placeholder="E-mail da Tatuadora" required>
+      <input type="password" id="adminPassword" placeholder="Senha" required>
+      <button type="submit" class="btn-gold">Acessar Painel</button>
+    </form>
+  </div>
+
+  <!-- CONTEÚDO DO PAINEL (SÓ EXIBIDO APÓS AUTENTICAÇÃO) -->
+  <div id="adminPanel" class="hidden">
+    <div class="header-admin">
+      <h1>Painel de Solicitacões</h1>
+      <button class="btn-logout" id="btnLogout">Sair</button>
+    </div>
+
+    <div class="cards-grid" id="appointmentsContainer">
+      <!-- Cards serão renderizados via JS -->
+    </div>
+  </div>
+
+  <!-- SDKs do Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+  <script src="admin-script.js"></script>
+</body>
+</html>
